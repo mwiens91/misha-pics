@@ -7,5 +7,9 @@ jQuery(document).ready(function () {
     thumbnailHeight: 400,
     itemsBaseURL:
       "https://raw.githubusercontent.com/mwiens91/misha-pics/master/pics",
+    viewerTools: {
+      topLeft: "playPauseButton",
+      topRight: "zoomButton, fullscreenButton, downloadButton, closeButton",
+    },
   });
 });
