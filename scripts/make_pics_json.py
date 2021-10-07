@@ -7,18 +7,21 @@ from PIL import Image
 PICS_DIR = "../pics"
 THUMBS_DIR = "../pics/thumbs"
 
+TIMEZONE = "ET"
+
 all_pics = sorted([f for f in os.listdir(PICS_DIR) if f[-3:] == "jpg"], reverse=True)
 all_thumbs = sorted(os.listdir(THUMBS_DIR), reverse=True)
 
 pics_list = []
 
 for pic, thumb in zip(all_pics, all_thumbs):
-    # Get dimensions
+    # Get dimensions and datetime taken
     pic_path = os.path.join(PICS_DIR, pic)
     thumb_path = os.path.join(THUMBS_DIR, pic)
 
     with Image.open(pic_path) as im:
         pic_w, pic_h = im.size
+        datetime_str = im._getexif()[36867].replace(":", "-", 2) + " " + TIMEZONE
 
     with Image.open(thumb_path) as im:
         thumb_w, thumb_h = im.size
@@ -33,6 +36,7 @@ for pic, thumb in zip(all_pics, all_thumbs):
             "imgtWidth": thumb_w,
             "src": os.path.join("/", pic),
             "srct": os.path.join("/thumbs/", thumb),
+            "title": datetime_str,
         }
     )
 

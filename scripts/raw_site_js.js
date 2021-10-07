@@ -5,10 +5,11 @@ jQuery(document).ready(function () {
     ,
     thumbnailWidth: "auto",
     thumbnailHeight: 400,
+    thumbnailLabel: { display: false },
     itemsBaseURL:
       "https://raw.githubusercontent.com/mwiens91/misha-pics/master/pics",
     viewerTools: {
-      topLeft: "playPauseButton",
+      topLeft: "label",
       topRight: "zoomButton, fullscreenButton, downloadButton, closeButton",
     },
   });
