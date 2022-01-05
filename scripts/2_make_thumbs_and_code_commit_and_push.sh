@@ -2,6 +2,8 @@
 
 ./1_make_thumbs_and_code.sh
 
+git pull
+
 git add ../pics
 git commit -m "Add new cat pics"
 
